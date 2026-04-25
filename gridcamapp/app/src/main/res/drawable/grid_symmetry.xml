@@ -4,5 +4,5 @@
     <path
         android:pathData="M50,0 L50,100 M45,50 L55,50"
         android:strokeColor="#B3FFFFFF"
-        android:strokeWidth="1.5" />
+        android:strokeWidth="0.5" />
 </vector>
