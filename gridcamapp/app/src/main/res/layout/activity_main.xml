@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@android:color/black">
+
+    <!-- ═══════════════════════════ VIEWFINDER ═══════════════════════════ -->
 
     <androidx.camera.view.PreviewView
         android:id="@+id/previewView"
@@ -26,40 +28,194 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Bottom control bar -->
+    <!-- ═══════════════════════════ TOP BAR ═══════════════════════════ -->
+    <!-- Height is 72dp baseline; Java will expand it dynamically for the notch -->
+
+    <View
+        android:id="@+id/topBarBg"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:background="@color/bar_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/flashButton"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="12dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Flash"
+        android:padding="8dp"
+        android:src="@drawable/ic_flash_off"
+        app:layout_constraintBottom_toBottomOf="@id/topBarBg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/topBarBg" />
+
+    <TextView
+        android:id="@+id/appNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.1"
+        android:text="GridCam"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/topBarBg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/topBarBg" />
+
+    <TextView
+        android:id="@+id/aiConfidenceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/accent_amber"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/topBarBg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/topBarBg" />
+
+    <!-- ═══════════════════════════ GRID NAME PILL ═══════════════════════════ -->
+
+    <TextView
+        android:id="@+id/gridNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_grid_label_pill"
+        android:paddingHorizontal="18dp"
+        android:paddingVertical="7dp"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.05"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBarBg" />
+
+    <!-- ═══════════════════════════ ZOOM PILLS ═══════════════════════════ -->
+
+    <TextView
+        android:id="@+id/zoom1x"
+        android:layout_width="52dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/bg_zoom_pill"
+        android:gravity="center"
+        android:text="1×"
+        android:textColor="@color/accent_amber"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/bottomBar"
+        app:layout_constraintEnd_toStartOf="@id/zoom2x"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/zoom2x"
+        android:layout_width="52dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/bg_zoom_pill"
+        android:gravity="center"
+        android:text="2×"
+        android:textColor="#AAFFFFFF"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/bottomBar"
+        app:layout_constraintStart_toEndOf="@id/zoom1x"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ═══════════════════════════ BOTTOM BAR ═══════════════════════════ -->
+    <!-- 200dp tall — upper 70dp = Smart Grid toggle row, lower 130dp = controls row -->
+
     <View
         android:id="@+id/bottomBar"
         android:layout_width="0dp"
-        android:layout_height="120dp"
-        android:background="#88000000"
+        android:layout_height="200dp"
+        android:background="@drawable/bg_bottom_gradient"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Smart Grid Toggle (bottom-left of bar) -->
+    <!-- Smart Grid toggle — top row of bottom bar, left-aligned -->
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/smartGridToggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="12dp"
         android:text="Smart Grid"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="@id/bottomBar"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/bottomBar"
-        android:layout_marginStart="24dp" />
+        app:thumbTint="@color/accent_amber"
+        app:trackTint="@color/accent_amber" />
 
-    <!-- Circular Capture Button (center of bar) -->
+    <!-- Last photo thumbnail — bottom-left of controls row -->
+    <ImageView
+        android:id="@+id/thumbnailView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/bg_thumbnail"
+        android:contentDescription="Last photo"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Shutter button — center of controls row -->
     <ImageButton
         android:id="@+id/captureButton"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        android:layout_marginBottom="28dp"
         android:background="@drawable/bg_capture_button"
         android:contentDescription="Capture Photo"
-        android:scaleType="fitCenter"
         android:src="@null"
-        app:layout_constraintBottom_toBottomOf="@id/bottomBar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/bottomBar" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- PHOTO label — below shutter -->
+    <TextView
+        android:id="@+id/photoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="PHOTO"
+        android:textColor="@color/accent_amber"
+        android:textSize="10sp"
+        android:letterSpacing="0.15"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Flip camera button — bottom-right of controls row -->
+    <ImageButton
+        android:id="@+id/flipCameraButton"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="38dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Flip camera"
+        android:padding="8dp"
+        android:src="@drawable/ic_flip_camera"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

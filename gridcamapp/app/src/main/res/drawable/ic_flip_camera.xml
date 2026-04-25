@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Outer arrow arc (top-right going clockwise) -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:pathData="M12,4 A8,8 0 1,1 4.93,7.07" />
+    <!-- Arrow head pointing left-down -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M3,4 L7,8 L7,4 Z" />
+    <!-- Small dot in center to differentiate front cam -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,11 A1,1 0 1,0 12,13 A1,1 0 1,0 12,11 Z" />
+</vector>

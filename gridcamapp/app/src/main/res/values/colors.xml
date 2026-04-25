@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="accent_amber">#FFCA28</color>
+    <color name="overlay_dark">#CC000000</color>
+    <color name="bar_bg">#BB000000</color>
 </resources>
