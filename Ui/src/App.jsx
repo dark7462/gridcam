@@ -16,6 +16,7 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { PixelFieldBackground } from '@/components/background/pixel-field-background'
 
 const featureCards = [
   {
@@ -78,7 +79,8 @@ const flow = [
 
 function App() {
   return (
-    <div className='relative overflow-x-clip'>
+    <div className='relative isolate overflow-x-clip'>
+      <PixelFieldBackground />
       <div
         className='pointer-events-none absolute inset-x-0 top-0 -z-10 h-[36rem] bg-[radial-gradient(circle_at_50%_20%,rgba(255,202,40,0.35),transparent_45%)]'
         aria-hidden='true'
@@ -135,9 +137,9 @@ function App() {
       <main>
         <section id='home' className='container-shell reveal-up py-20 sm:py-28'>
           <div className='mx-auto max-w-3xl text-center'>
-            <Badge variant='secondary' className='border-white/20 bg-black/30 text-slate-200'>
+            <h2 className='text-sm font-semibold tracking-[0.2em] text-slate-300 uppercase'>
               AI-Powered Composition Camera
-            </Badge>
+            </h2>
             <h1 className='mt-6 text-balance text-4xl font-semibold tracking-tight text-white sm:text-6xl'>
               Shoot better photos with real-time composition guidance.
             </h1>
