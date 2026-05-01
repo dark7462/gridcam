@@ -81,10 +81,6 @@ function App() {
   return (
     <div className='relative isolate overflow-x-clip'>
       <PixelFieldBackground />
-      <div
-        className='pointer-events-none absolute inset-x-0 top-0 -z-10 h-[36rem] bg-[radial-gradient(circle_at_50%_20%,rgba(255,202,40,0.35),transparent_45%)]'
-        aria-hidden='true'
-      />
 
       <header className='sticky top-0 z-50 border-b border-white/10 bg-slate-950/75 backdrop-blur'>
         <div className='container-shell flex h-16 items-center justify-between'>
@@ -137,13 +133,13 @@ function App() {
       <main>
         <section id='home' className='container-shell reveal-up py-20 sm:py-28'>
           <div className='mx-auto max-w-3xl text-center'>
-            <h2 className='text-sm font-semibold tracking-[0.2em] text-slate-300 uppercase'>
+            <h2 className='text-sm font-semibold tracking-[0.2em] text-slate-100 uppercase'>
               AI-Powered Composition Camera
             </h2>
             <h1 className='mt-6 text-balance text-4xl font-semibold tracking-tight text-white sm:text-6xl'>
               Shoot better photos with real-time composition guidance.
             </h1>
-            <p className='mx-auto mt-6 max-w-2xl text-pretty text-lg text-slate-300'>
+            <p className='mx-auto mt-6 max-w-2xl text-pretty text-lg text-slate-100'>
               GridCam analyzes your scene on-device and recommends the best framing grid so
               every shot feels intentional.
             </p>
@@ -202,7 +198,7 @@ function App() {
                   <CardTitle className='pt-2'>{item.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className='text-sm text-slate-300'>{item.text}</p>
+                  <p className='text-sm text-slate-200'>{item.text}</p>
                 </CardContent>
               </Card>
             ))}
@@ -251,7 +247,7 @@ function App() {
                   <Cpu className='size-4 text-primary' /> AI Runtime
                 </CardTitle>
               </CardHeader>
-              <CardContent className='space-y-3 text-sm text-slate-300'>
+              <CardContent className='space-y-3 text-sm text-slate-200'>
                 <p>MobileNetV2-based classifier exported to TFLite / LiteRT.</p>
                 <p>Four-class composition output with confidence-aware display threshold.</p>
               </CardContent>
@@ -262,7 +258,7 @@ function App() {
                   <Smartphone className='size-4 text-primary' /> Camera UX
                 </CardTitle>
               </CardHeader>
-              <CardContent className='space-y-2 text-sm text-slate-300'>
+              <CardContent className='space-y-2 text-sm text-slate-200'>
                 <p className='flex items-center gap-2'>
                   <CheckCircle2 className='size-4 text-primary' /> <ZoomIn className='size-4' />{' '}
                   Quick zoom switching
@@ -282,7 +278,7 @@ function App() {
           <Card className='border-primary/40 bg-black/45 text-center'>
             <CardHeader>
               <CardTitle className='text-2xl sm:text-3xl'>Ready to frame smarter shots?</CardTitle>
-              <CardDescription className='mx-auto max-w-xl text-slate-300'>
+              <CardDescription className='mx-auto max-w-xl text-slate-200'>
                 GridCam combines camera controls and composition intelligence in one focused
                 Android shooting experience.
               </CardDescription>
@@ -298,7 +294,7 @@ function App() {
         </section>
       </main>
 
-      <footer className='border-t border-white/10 py-8 text-center text-sm text-slate-400'>
+      <footer className='border-t border-white/10 py-8 text-center text-sm text-slate-200'>
         <p>GridCam • AI composition assistant for mobile photography</p>
       </footer>
     </div>
