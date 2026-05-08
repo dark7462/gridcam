@@ -4,6 +4,21 @@
 
 ---
 
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| **Platform** | Android (Min SDK 24 / Target SDK 35) |
+| **Language** | Java |
+| **Camera Framework** | CameraX `1.3.0` |
+| **ML Runtime** | LiteRT (Google AI Edge) `1.3.0` |
+| **ML Model** | MobileNetV2 (TensorFlow/Keras, converted to TFLite) |
+| **UI Framework** | ConstraintLayout `2.2.1`, Material3, ViewBinding |
+| **Build System** | Gradle `8.13`, AGP `8.13.2`, JDK 25 |
+| **Model Training** | TensorFlow / Keras (Google Colab) |
+
+---
+
 ## ✨ Features
 
 | Feature | Description |
